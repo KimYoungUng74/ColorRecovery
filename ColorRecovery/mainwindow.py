@@ -1,4 +1,7 @@
 import sys
+import numpy as np
+import cv2
+
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import *
 from PyQt5 import uic
@@ -9,10 +12,21 @@ class Ui_MainWindow(QMainWindow):
     def button1Function(self) :
         filters = "Text files (*.txt);;Images (*.png *.xpm *.jpg)"
         selected_filter = "Images (*.png *.xpm *.jpg)"
-        fname = QFileDialog.getOpenFileName(self, 'File dialog', '',filters, selected_filter)
-        print(fname[0])
-        self.file_lable.setText(fname[0])
-        self.image_area.setPixmap(QPixmap(QPixmap(fname[0])))
+        fname1 = QFileDialog.getOpenFileName(self, 'File dialog', '',filters, selected_filter)
+        fname2 = QFileDialog.getOpenFileName(self, 'File dialog', '',filters, selected_filter)
+        print(fname1[0])
+        print(fname2[0])
+        self.file_lable.setText(fname1[0])
+        img = cv2.imread(fname1[0])
+        mask = cv2.imread(fname2[0],0)
+
+        damage_recovery = cv2.inpaint(img,mask,3,cv2.INPAINT_TELEA)
+
+        cv2.imshow('damage_recovery_before',img)
+        cv2.imshow('damage_recovery_after',damage_recovery)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+        '''self.image_area.setPixmap(QPixmap(QPixmap(fname[0])))'''
         
     #btn_2가 눌리면 작동할 함수
     def button2Function(self) :
@@ -60,18 +74,8 @@ class Ui_MainWindow(QMainWindow):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.file_btn.setText(_translate("MainWindow", "File Open"))
         self.close_btn.setText(_translate("MainWindow", "Close Button"))
-        self.file_lable.setText(_translate("MainWindow", "File Namedsafsfdsfdsfdsfsdfdsfsdfsfdsfdsfsfsdfsd"))
+        self.file_lable.setText(_translate("MainWindow", "File Name"))
         self.image_area.setText(_translate("MainWindow", "image Area"))
-
-    #btn_1이 눌리면 작동할 함수
-    def button1Function(self) :
-        fname = QFileDialog.getOpenFileName(self)
-        print(fname[0])
-        self.file_lable.setText(fname[0])
-        self.image_area.setPixmap(QPixmap(QPixmap(fname[0])))
-    #btn_2가 눌리면 작동할 함수
-    def button2Function(self) :
-        print("close_btn Clicked")
 
 
 if __name__=="__main__":
