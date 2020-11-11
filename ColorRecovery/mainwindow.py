@@ -24,13 +24,16 @@ class Ui_MainWindow(QMainWindow):
 
         cv2.imshow('damage_recovery_before',img)
         cv2.imshow('damage_recovery_after',damage_recovery)
+        
+        fname3 = QFileDialog.getSaveFileName(self, " Save File ", "",filters, selected_filter)
+        cv2.imwrite(fname3[0],damage_recovery)
         cv2.waitKey(0)
         cv2.destroyAllWindows()
-        '''self.image_area.setPixmap(QPixmap(QPixmap(fname[0])))'''
-        
     #btn_2가 눌리면 작동할 함수
     def button2Function(self) :
         print("close_btn Clicked")
+        
+
 
     def setupUi(self, QMainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -39,10 +42,10 @@ class Ui_MainWindow(QMainWindow):
         self.centralwidget.setObjectName("centralwidget")
 
         self.file_btn = QtWidgets.QPushButton(self.centralwidget)
-        self.file_btn.setGeometry(QtCore.QRect(330, 470, 151, 71))
+        self.file_btn.setGeometry(QtCore.QRect(250, 470, 151, 71))
         self.file_btn.setObjectName("file_btn")
         self.file_btn.clicked.connect(self.button1Function)
-        
+
         self.close_btn = QtWidgets.QPushButton(self.centralwidget)
         self.close_btn.setGeometry(QtCore.QRect(350, 550, 111, 23))
         self.close_btn.setObjectName("close_btn")
@@ -76,6 +79,7 @@ class Ui_MainWindow(QMainWindow):
         self.close_btn.setText(_translate("MainWindow", "Close Button"))
         self.file_lable.setText(_translate("MainWindow", "File Name"))
         self.image_area.setText(_translate("MainWindow", "image Area"))
+        
 
 
 if __name__=="__main__":

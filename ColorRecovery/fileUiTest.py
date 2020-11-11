@@ -16,19 +16,27 @@ class WindowClass(QMainWindow, form_class) :
         #버튼에 기능을 연결하는 코드
         self.file_btn.clicked.connect(self.button1Function)
         self.close_btn.clicked.connect(self.button2Function)
+        self.save_btn.clicked.connect(self.button3Function)
 
     #btn_1이 눌리면 작동할 함수
     def button1Function(self) :
-
         filters = "Text files (*.txt);;Images (*.png *.xpm *.jpg)"
         selected_filter = "Images (*.png *.xpm *.jpg)"
         fname = QFileDialog.getOpenFileName(self, " File dialog ", "",filters, selected_filter)
         print(fname[0])
         self.file_lable.setText(fname[0])
         self.image_area.setPixmap(QPixmap(QPixmap(fname[0])))
+
     #btn_2가 눌리면 작동할 함수
     def button2Function(self) :
         print("close_btn Clicked")
+    
+    #btn_3가 눌리면 작동할 함수
+    def button3Function(self) :
+        #filters = "Text files (*.txt);;Images (*.png *.xpm *.jpg)"
+        #selected_filter = "Images (*.png *.xpm *.jpg)"
+        fname2 = QFileDialog.getSaveFileName(self, " Save File ", "",filters, selected_filter)
+        
 
 
 if __name__ == "__main__" :

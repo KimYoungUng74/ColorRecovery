@@ -27,6 +27,19 @@
      <string>File Open</string>
     </property>
    </widget>
+    <widget class="QPushButton" name="save_btn">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>470</y>
+      <width>111</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Save Button</string>
+    </property>
+   </widget>
    <widget class="QPushButton" name="close_btn">
     <property name="geometry">
      <rect>
