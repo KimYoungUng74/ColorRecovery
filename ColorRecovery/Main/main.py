@@ -2,7 +2,8 @@ import sys
 from PyQt5.QtWidgets import *
 from PyQt5 import uic
 from PyQt5.QtGui import *
-from Color_recobery import ColorWindow
+from Color_recovery import ColorWindow
+from Recovery import RecoveryWindow
 
 #UI파일 연결
 #단, UI파일은 Python 코드 파일과 같은 디렉토리에 위치해야한다.
@@ -24,7 +25,7 @@ class WindowClass(QMainWindow, main_ui) :
     
     #btn_2가 눌리면 작동할 함수
     def button2Function(self) :
-        print("close_btn Clicked")
+        RecoveryWindow(self)
     
     #btn_3가 눌리면 작동할 함수
     def button3Function(self) :
