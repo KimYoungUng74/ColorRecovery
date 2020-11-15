@@ -18,7 +18,7 @@ class ColorWindow(QDialog):
         self.close_btn.clicked.connect(self.button2Function)
 
         
-         #btn_1이 눌리면 작동할 함수
+    #btn_1이 눌리면 작동 할 함수
     def button1Function(self) :
         filters = "Text files (*.txt);;Images (*.png *.xpm *.jpg)"
         selected_filter = "Images (*.png *.xpm *.jpg)"
@@ -41,4 +41,4 @@ class ColorWindow(QDialog):
 
     #btn_2가 눌리면 작동할 함수
     def button2Function(self) :
-        WindowClass()
+        self.close()

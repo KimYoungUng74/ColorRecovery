@@ -20,7 +20,6 @@ class WindowClass(QMainWindow, main_ui) :
 
     #btn_1가 눌리면 작동할 함수
     def ColorBtnFunction(self) :
-        self.hide()
         ColorWindow(self)
     
     #btn_2가 눌리면 작동할 함수
