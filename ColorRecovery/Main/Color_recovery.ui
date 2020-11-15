@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>560</width>
-    <height>460</height>
+    <width>800</width>
+    <height>540</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QPushButton" name="file_btn">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>270</y>
+     <x>320</x>
+     <y>410</y>
      <width>151</width>
      <height>71</height>
     </rect>
@@ -29,14 +29,66 @@
   <widget class="QPushButton" name="close_btn">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>380</y>
+     <x>340</x>
+     <y>500</y>
      <width>111</width>
      <height>23</height>
     </rect>
    </property>
    <property name="text">
     <string>창 닫기</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="eccv16_image">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>60</y>
+     <width>341</width>
+     <height>231</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="siggraph17_image">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>60</y>
+     <width>341</width>
+     <height>231</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="eccv16_btn">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>330</y>
+     <width>121</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>저장하기</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="siggraph17_btn">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>330</y>
+     <width>121</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>저장하기</string>
    </property>
   </widget>
  </widget>
