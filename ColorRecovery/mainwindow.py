@@ -1,11 +1,14 @@
 import sys
 import numpy as np
 import cv2
+import argparse
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import *
 from PyQt5 import uic
 from PyQt5.QtGui import *
+from colorizers import *
+
 class Ui_MainWindow(QMainWindow):
 
     #btn_1이 눌리면 작동할 함수
@@ -13,20 +16,21 @@ class Ui_MainWindow(QMainWindow):
         filters = "Text files (*.txt);;Images (*.png *.xpm *.jpg)"
         selected_filter = "Images (*.png *.xpm *.jpg)"
         fname1 = QFileDialog.getOpenFileName(self, 'File dialog', '',filters, selected_filter)
-        fname2 = QFileDialog.getOpenFileName(self, 'File dialog', '',filters, selected_filter)
-        print(fname1[0])
-        print(fname2[0])
-        self.file_lable.setText(fname1[0])
+        #fname2 = QFileDialog.getOpenFileName(self, 'File dialog', '',filters, selected_filter)
+        #print(fname1[0])
+        #print(fname2[0])
+        #self.file_lable.setText(fname1[0])
         img = cv2.imread(fname1[0])
-        mask = cv2.imread(fname2[0],0)
+        #mask = cv2.imread(fname2[0],0)
+        self.image_area.setPixmap(QPixmap(QPixmap(fname1[0])))
 
-        damage_recovery = cv2.inpaint(img,mask,3,cv2.INPAINT_TELEA)
+        #damage_recovery = cv2.inpaint(img,mask,3,cv2.INPAINT_TELEA)
 
-        cv2.imshow('damage_recovery_before',img)
-        cv2.imshow('damage_recovery_after',damage_recovery)
+        #cv2.imshow('damage_recovery_before',img)
+        #cv2.imshow('damage_recovery_after',damage_recovery)
         
-        fname3 = QFileDialog.getSaveFileName(self, " Save File ", "",filters, selected_filter)
-        cv2.imwrite(fname3[0],damage_recovery)
+       # fname3 = QFileDialog.getSaveFileName(self, " Save File ", "",filters, selected_filter)
+        #cv2.imwrite(fname3[0],damage_recovery)
         cv2.waitKey(0)
         cv2.destroyAllWindows()
     #btn_2가 눌리면 작동할 함수
@@ -37,7 +41,7 @@ class Ui_MainWindow(QMainWindow):
 
     def setupUi(self, QMainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 740)
+        MainWindow.resize(1200, 900)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
 
@@ -59,6 +63,10 @@ class Ui_MainWindow(QMainWindow):
         self.image_area.setGeometry(QtCore.QRect(120, 20, 561, 361))
         self.image_area.setObjectName("image_area")
 
+        self.image_area1 = QtWidgets.QLabel(self.centralwidget)
+        self.image_area1.setGeometry(QtCore.QRect(360, 20, 561, 361))
+        self.image_area1.setObjectName("image_area1")
+
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -79,6 +87,7 @@ class Ui_MainWindow(QMainWindow):
         self.close_btn.setText(_translate("MainWindow", "Close Button"))
         self.file_lable.setText(_translate("MainWindow", "File Name"))
         self.image_area.setText(_translate("MainWindow", "image Area"))
+        self.image_area1.setText(_translate("MainWindow", "image Area1"))
         
 
 

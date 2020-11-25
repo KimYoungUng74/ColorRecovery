@@ -75,8 +75,8 @@ class ColorWindow(QDialog):
         plt.imsave('%s_siggraph17.png'%opt.save_prefix, out_img_siggraph17)
         
         # 이미지 불러오기
-        pixmap1 = QPixmap("C:/Users/Hero/Documents/ColorRecovery/ColorRecovery/saved_eccv16.png")
-        pixmap2 = QPixmap("C:/Users/Hero/Documents/ColorRecovery/ColorRecovery/saved_siggraph17.png")
+        pixmap1 = QPixmap("saved_eccv16.png")
+        pixmap2 = QPixmap("saved_siggraph17.png")
 
         # eccv16 이미지 크기 비율 조정
         if pixmap1.width() > pixmap1.height() :
